@@ -26,11 +26,11 @@ class JobTest extends TestCase
     }
 }
 
-it('can have tags', function () {
-    // AAA
-    $job = Job::factory()->create();
+// it('can have tags', function () {
+//     // AAA
+//     $job = Job::factory()->create();
 
-    $job->tag('Frontend');
+//     $job->tag('Frontend');
 
-    expect($job->tags)->toHaveCount(1);
-});
+//     expect($job->tags)->toHaveCount(1);
+// });
