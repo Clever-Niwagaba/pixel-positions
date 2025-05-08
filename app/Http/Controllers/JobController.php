@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use App\Models\Tag;
+use App\Models\Employer;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
