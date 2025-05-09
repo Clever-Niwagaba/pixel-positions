@@ -1,7 +1,7 @@
 <x-layout>
     <x-page-heading>New Job</x-page-heading>
 
-    <x-forms.form method="POST" action="/jobs">
+    <x-forms.form method="POST" action="/jobs/create">
         <x-forms.input label="Title" name="title" placeholder="CEO" />
         <x-forms.input label="Salary" name="salary" placeholder="3,500,000" />
         <x-forms.input label="Location" name="location" placeholder="Entebbe, Uganda" />
@@ -9,7 +9,7 @@
         <x-forms.select label="Schedule" name="schedule">
             <option>Part Time</option>
             <option>Full Time</option>
-        <x-forms.select>
+        </x-forms.select>
 
         <x-forms.input label="URL" name="url" placeholder="https://bnmg.com/jobs/producer-wanted" />
         <x-forms.checkbox label="Feature (Costs Extra)" name="featured" />

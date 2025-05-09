@@ -13,7 +13,7 @@
 </head>
 <body class="bg-black text-white font-hanken-grotesk pb-20">
     <div class="px-10">
-        <nav class='border-b border-white/10 flex justify-between items-center bg-red-500 py-4'>
+        <nav class='border-b border-white/10 flex justify-between items-center py-4'>
             <div>
                 <a href="/">
                     <img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Logo" width="100" height="100">
@@ -28,8 +28,14 @@
             </div>
 
             @auth
-                <div>
+                <div class="space-x-6 font-bold flex">
                     <a href="/jobs/create">Post a Job</a>
+
+                    <form method="POST" action="/logout">
+                        @csrf
+                        @method('DELETE')
+                        <button><a >Log Out</a></button>
+                    </form>
                 </div>
             @endauth
 

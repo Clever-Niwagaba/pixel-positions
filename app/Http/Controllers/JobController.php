@@ -20,13 +20,13 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::where('featured', false)->get();
-        $featuredJobs = Job::where('featured', true)->get();
+        $jobs = Job::latest()->with(['employer', 'tags'])->where('featured', false)->get();
+        $featuredJobs = Job::latest()->with(['employer', 'tags'])->where('featured', true)->get();
         // return $jobs;
 
         return view('jobs.index', [
-            'featuredJobs' => $featuredJobs,
             'jobs' => $jobs,
+            'featuredJobs' => $featuredJobs,
             'tags' => Tag::all(),
         ]);
     }
@@ -56,7 +56,7 @@ class JobController extends Controller
 
         $attributes['featured'] = $request->has('featured');
 
-        $job = Auth::user()->employer()->jobs()->create(Arr::except($attributes, 'tags'));
+        $job = Auth::user()->employer->jobs()->create(Arr::except($attributes, 'tags'));
 
         if ($attributes['tags'] ?? false) {
             foreach (explode(',', $attributes['tags']) as $tag) {
